@@ -38,7 +38,12 @@ When you reach to this state, please let the instructor know about it so we can 
 
 ### Preparing your working environment 
 
-* Clone/Fork this repository to your own GitHub account. Repository should be publicly accessible.
+* **Clone** this repository to your local machine and then update the git origin to point your own GitHub account repository. Repository should be publicly accessible. \
+  Example,
+    ```
+    git remote set-url origin https://github.com/<GitHub Account>/devops-candidate-exam.git
+    ```
+  * We are requesting not to *fork* the project since other candidates will be able to view your results.
   * In case you are having trouble to modify the code locally and push it to GitHub via SSH, try using the HTTPS origin or upload your modified files via the GitHub Web UI.
 * Make sure you are able to access the Jenkins UI using the link you got.
 * You'll be able to run the Terraform code only via the Jenkins pipeline, so make sure to download the Terraform executable to the Jenkins machine. 
@@ -57,6 +62,19 @@ Key: "<Your First Name>.<You Last Name>"
 
 Once you have created your S3 backend config you may try to perform Terraform init. \
 ***NOTE**: Terraform init or any AWS CLI command can be executed only from the Jenkins pipeline.*
+
+For the **Subnet** CIDR block please use the following:
+```
+10.0.1.0/24
+10.0.2.0/24
+10.0.3.0/24
+10.0.4.0/24
+...
+...
+10.0.254.0/24
+```
+The VPC CIDR block is `10.0.0.0/16`. \
+We do not have any preference regarding the availability zone for the subnet.
 
 #### **Lambda Code**
 
