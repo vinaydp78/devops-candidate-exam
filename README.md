@@ -23,7 +23,7 @@ Your Terraform code will cover the creation of:
   * Security Group
 
 We will provide the *VPC ID*, *NAT Gateway ID*, *Lambda IAM Role & Policy*. \
-Check the [data.tf](https://github.com/jerasioren/devops-candidate-exam/data.tf) for reference to those resources.
+Check the [data.tf](https://github.com/jerasioren/devops-candidate-exam/blob/main/data.tf) for reference to those resources.
 
 Once your Terraform code is ready you'll be able to test it via a Jenkins pipeline that will execute it. \
 A Jenkins URL will be provided to you.
