@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("TF Init"){
             steps{
-               sh terraform init
+               sh "terraform init"
             }
         }
         stage("TF Validate"){
