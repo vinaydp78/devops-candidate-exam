@@ -96,7 +96,7 @@ resource "aws_lambda_function" "example" {
   role             = aws_iam_role.example.arn
   runtime          = "nodejs14.x"
   vpc_config {
-    subnet_ids = [aws_subnet.example.id]
+    subnet_ids = [prod-subnet-public-1.id]
     security_group_ids = [aws_security_group.example.id]
   }
 }
