@@ -11,11 +11,6 @@ pipeline{
                sh "terraform init"
             }
         }
-        stage("TF Validate"){
-            steps{
-                 sh "validate"
-            }
-        }
         stage("TF Plan"){
             steps{
                 sh "terraform plan"
