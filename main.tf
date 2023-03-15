@@ -27,13 +27,13 @@ resource "aws_route_table" "private_route_table" {
 }
 
 # Create Lambda function
-resource "aws_lambda_function" "my_lambda_function" {
+resource "aws_lambda_function" "my_lambda_function_1" {
   function_name = "my-lambda-function"
   handler = "index.handler"
   runtime = "nodejs14.x"
   role = "DevOps-Candidate-Lambda-Role"
   # replace with your lambda function code
-  filename = "lambda_function.zip"
+  filename = "api_vinay.zip"
 }
 
 # Create security group
@@ -54,7 +54,7 @@ resource "aws_security_group" "my_security_group" {
 }
 
 # Attach security group to Lambda function
-resource "aws_lambda_function" "my_lambda_function" {
+resource "aws_lambda_function" "my_lambda_function_1" {
   security_group_ids = [aws_security_group.my_security_group.id]
 }
 
