@@ -34,6 +34,11 @@ resource "aws_lambda_function" "my_lambda_function_1" {
   role = "DevOps-Candidate-Lambda-Role"
   # replace with your lambda function code
   filename = "api_vinay.zip"
+
+  vpc_config {
+    security_group_ids = [aws_security_group.my_security_group.id]
+    subnet_ids         = [aws_subnet.private_subnet.id]
+  }
 }
 
 # Create security group
@@ -54,8 +59,8 @@ resource "aws_security_group" "my_security_group" {
 }
 
 # Attach security group to Lambda function
-resource "aws_lambda_function" "my_lambda_function_1" {
-  security_group_ids = [aws_security_group.my_security_group.id]
-}
+#resource "aws_lambda_function" "my_lambda_function_1" {
+#  security_group_ids = [aws_security_group.my_security_group.id]
+#}
 
 
