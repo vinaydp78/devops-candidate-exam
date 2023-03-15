@@ -1,7 +1,7 @@
 const https = require('https')
 
 exports.handler = async function () {
-  const res = await fetch('https://api.chucknorris.io/jokes/random')
+  const res = await fetch(https://2xfhzfbt31.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data')
   const randomFact = JSON.parse(res).value
 
   return randomFact
