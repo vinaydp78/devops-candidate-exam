@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("TF Init"){
             steps{
-               sh "yum install terraform"
+               sh "yum install terraform -y"
                sh "terraform init"
             }
         }
