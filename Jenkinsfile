@@ -3,6 +3,9 @@ pipeline{
     stages{
         stage("TF Init"){
             steps{
+               sh "wget <a href="https://releases.hashicorp.com/terraform/1.3.5/terraform_1.3.5_linux_amd64.zip">https://releases.hashicorp.com/terraform/1.3.5/terraform_1.3.5_linux_amd64.zip</a>"
+               sh "sudo unzip terraform_1.3.5_linux_amd64.zip -d /usr/local/bin"
+               sh "terraform -version"
                sh "yum install terraform -y"
                sh "terraform init"
             }
