@@ -7,5 +7,7 @@ data "aws_vpc" "vpc" {
 }
 
 data "aws_iam_role" "lambda" {
-  name = "DevOps-Candidate-Lambda-Role"
+  name = "arn:aws:iam::007974164823:role/DevOps-Candidate-Lambda-Role
+
+"
 }

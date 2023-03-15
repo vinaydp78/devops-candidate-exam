@@ -31,7 +31,7 @@ resource "aws_lambda_function" "my_lambda_function_1" {
   function_name = "my-lambda-function"
   handler = "index.handler"
   runtime = "nodejs14.x"
-  role = "DevOps-Candidate-Lambda-Role"
+  role = "arn:aws:iam::007974164823:role/DevOps-Candidate-Lambda-Role"
   # replace with your lambda function code
   filename = "api_vinay.zip"
 
