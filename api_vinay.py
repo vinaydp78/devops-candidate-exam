@@ -1,31 +1,41 @@
-const https = require('https')
+import requests
+import json
 
-exports.handler = async function () {
-  const res = await fetch(https://2xfhzfbt31.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data')
-  const randomFact = JSON.parse(res).value
 
-  return randomFact
+class MakeApiCall:
+
+    def get_data(self, api):
+        response = requests.get(f"{api}")
+        if response.status_code == 200:
+            print("sucessfully fetched the data")
+            self.formatted_print(response.json())
+        else:
+            print(
+                f"Hello person, there's a {response.status_code} error with your request")
+
+    def get_user_data(self, api, parameters):
+        response = requests.get(f"{api}", params=parameters)
+        if response.status_code == 200:
+            print("sucessfully fetched the data with parameters provided")
+            self.formatted_print(response.json())
+        else:
+            print(
+                f"Hello person, there's a {response.status_code} error with your request")
+
+    def formatted_print(self, obj):
+        text = json.dumps(obj, sort_keys=True, indent=4)
+        print(text)
+
+    def __init__(self, api):
+        # self.get_data(api)
+
+        payload = {
+         "subnet_id": "${aws_subnet.private_subnet.id}",
+         "name": "vinay patange",
+         "email": "vinaydp78@gmail.com"
 }
+        self.get_user_data(api, payload)
 
-async function fetch(url) {
-  return new Promise((resolve, reject) => {
-    const request = https.get(url, { timeout: 1000 }, (res) => {
-      if (res.statusCode < 200 || res.statusCode > 299) {
-        return reject(new Error(`HTTP status code ${res.statusCode}`))
-      }
 
-      const body = []
-      res.on('data', (chunk) => body.push(chunk))
-      res.on('end', () => {
-        const resString = Buffer.concat(body).toString()
-        resolve(resString)
-      })
-    })
-
-    request.on('error', (err) => reject(err))
-    request.on('timeout', (err) => {
-      console.log('timed out', err)
-      reject(err)
-    })
-  })
-}
+if __name__ == "__main__":
+    api_call = MakeApiCall("https://2xfhzfbt31.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data")
