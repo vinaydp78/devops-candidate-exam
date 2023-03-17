@@ -25,7 +25,9 @@ pipeline{
             steps{
                echo "lambda"
                //sh "aws lambda invoke  --function-name my-lambda-function"
+                sh "aws lambda invoke --function-name my-lambda-function --cli-binary-format raw-in-base64-out --payload '{}' out.txt"
             }
         }
     }
 }
+
